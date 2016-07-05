@@ -1,7 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 ## 通过编写Makefile.am文件，利用automake 生成Makefile.in 规则 
 
-SUBDIRS = \
+subdirs = \
 	alerter \
 	dbsyncer \
 	dbconfig \
