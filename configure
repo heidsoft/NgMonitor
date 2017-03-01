@@ -2424,8 +2424,9 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE='ngmonitor'
- VERSION='1.0'
+
+ PACKAGE=NgMonitor
+ VERSION=1.0
 
 
 cat >>confdefs.h <<_ACEOF

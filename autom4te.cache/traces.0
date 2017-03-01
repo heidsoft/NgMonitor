@@ -816,7 +816,7 @@ m4trace:configure.ac:7: -1- m4_pattern_allow([^target$])
 m4trace:configure.ac:7: -1- m4_pattern_allow([^target_cpu$])
 m4trace:configure.ac:7: -1- m4_pattern_allow([^target_vendor$])
 m4trace:configure.ac:7: -1- m4_pattern_allow([^target_os$])
-m4trace:configure.ac:8: -1- AM_INIT_AUTOMAKE
+m4trace:configure.ac:8: -1- AM_INIT_AUTOMAKE([NgMonitor], [1.0])
 m4trace:configure.ac:8: -1- m4_pattern_allow([^AM_[A-Z]+FLAGS$])
 m4trace:configure.ac:8: -1- AM_SET_CURRENT_AUTOMAKE_VERSION
 m4trace:configure.ac:8: -1- AM_AUTOMAKE_VERSION([1.15])
@@ -827,7 +827,8 @@ m4trace:configure.ac:8: -1- m4_pattern_allow([^INSTALL_DATA$])
 m4trace:configure.ac:8: -1- m4_pattern_allow([^am__isrc$])
 m4trace:configure.ac:8: -1- _AM_SUBST_NOTMAKE([am__isrc])
 m4trace:configure.ac:8: -1- m4_pattern_allow([^CYGPATH_W$])
-m4trace:configure.ac:8: -1- _AM_SET_OPTIONS([])
+m4trace:configure.ac:8: -1- _m4_warn([obsolete], [AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.], [/usr/local/Cellar/automake/1.15/share/aclocal-1.15/init.m4:171: AM_INIT_AUTOMAKE is expanded from...
+configure.ac:8: the top level])
 m4trace:configure.ac:8: -1- m4_pattern_allow([^PACKAGE$])
 m4trace:configure.ac:8: -1- m4_pattern_allow([^VERSION$])
 m4trace:configure.ac:8: -1- _AM_IF_OPTION([no-define], [], [AC_DEFINE_UNQUOTED([PACKAGE], ["$PACKAGE"], [Name of package])

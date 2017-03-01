@@ -1,0 +1,114 @@
+###############################
+# Makefile for contrib software
+#
+# Last Modified: 05-19-2008
+###############################
+
+CC=@CC@
+CFLAGS=-I.. @CFLAGS@ @DEFS@
+LDFLAGS=@LDFLAGS@ @LIBS@
+
+# Source code directories
+SRC_INCLUDE=../include
+SRC_COMMON=../common
+SRC_CGI=../cgi
+SRC_LIB=../lib
+
+# Generated automatically from configure script
+SNPRINTF_O=@SNPRINTF_O@
+INSTALL=@INSTALL@
+INSTALL_OPTS=@INSTALL_OPTS@
+
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+CGIDIR=@sbindir@
+BINDIR=@bindir@
+
+CGIS=traceroute.cgi daemonchk.cgi
+UTILS=convertcfg
+ALL=$(CGIS) $(UTILS)
+
+
+CGI_C=$(SRC_CGI)/getcgi.c
+CGI_O=$(SRC_CGI)/getcgi.o $(SNPRINTF_O)
+CGI_H=$(SRC_INCLUDE)/getcgi.h
+COMMON_H=$(SRC_INCLUDE)/config.h $(SRC_INCLUDE)/common.h $(SRC_INCLUDE)/locations.h
+
+##############################################################################
+# standard targets (all, clean, distclean, devclean, install)
+
+all: $(ALL)
+
+clean:
+	rm -f convertcfg daemonchk.cgi core *.o
+	rm -f */*/*~
+	rm -f */*~
+	rm -f *~
+	rm -rf rpmbuild *.rpm
+
+distclean: clean
+	rm -f Makefile
+
+devclean: distclean
+
+install:
+	$(INSTALL) -m 775 $(INSTALL_OPTS) -d $(DESTDIR)$(CGIDIR)
+	$(INSTALL) -m 775 $(INSTALL_OPTS) -d $(DESTDIR)$(BINDIR)
+	for f in $(CGIS); do $(INSTALL) -m 775 $(INSTALL_OPTS) $$f $(DESTDIR)$(CGIDIR); done
+	for f in $(UTILS); do $(INSTALL) -m 775 $(INSTALL_OPTS) $$f $(DESTDIR)$(BINDIR); done
+
+##############################################################################
+# rules and dependencies for actual target programs
+
+$(SRC_LIB)/libnagios.a:
+	make -C $(SRC_LIB) libnagios.a
+
+daemonchk.cgi: daemonchk.o $(CGI_O) $(CGI_H) $(COMMON_H) $(SRC_LIB)/libnagios.a
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $< $(CGI_O) $(SRC_LIB)/libnagios.a
+
+daemonchk.o: daemonchk.c
+	$(CC) $(CFLAGS) -c -o $@ $< -I$(SRC_INCLUDE)
+
+nagios-worker: nagios-worker.c
+	$(CC) $(CFLAGS) -o $@ $< $(LDFLAGS) $(LIBS) $(SRC_LIB)/libnagios.a
+
+##############################################################################
+# dependencies
+
+$(CGI_O): $(CGI_C)
+	cd $(SRC_CGI) && make $(CGI_O)
+
+##############################################################################
+# implicit rules
+
+%.cgi : %.c
+	$(CC) $(CFLAGS) $(LDFLAGS) $< $(CGI_O) -o $@
+
+##############################################################################
+# rpm making automation for CentOS/RHEL.
+
+ARCH ?= $(shell arch)
+ifeq ($(ARCH),x86_64)
+RPM_ARCH := x86_64
+else
+    ifeq ($(ARCH),i686)
+RPM_ARCH := i386
+    else
+$(error Unknown arch "$(ARCH)".)
+    endif
+endif
+
+rpm:
+	# create nagios tar ball.
+	@(cd ..;rm -f nagios-@VERSION@)
+	@(cd ..;ln -s . nagios-@VERSION@)
+	@(cd ..;tar zhcf nagios-@VERSION@.tar.gz --exclude nagios-@VERSION@/nagios-@VERSION@.tar.gz --exclude nagios-@VERSION@/nagios-@VERSION@ --exclude RCS --exclude CVS --exclude build-* --exclude *~ --exclude .git* nagios-@VERSION@/)
+	@(cd ..;rm -f nagios-@VERSION@)
+	# build the rpm using rpmbuild from ./rmbuild as topdir
+	@rm -rf rpmbuild && mkdir -p rpmbuild/SOURCES
+	@cp  ../nagios-@VERSION@.tar.gz rpmbuild/SOURCES/nagios-@VERSION@.tar.gz
+	@rpmbuild -ba --define "_topdir ${PWD}/rpmbuild"   ../nagios.spec
+	@mv rpmbuild/RPMS/$(RPM_ARCH)/*.rpm .
+	@ls -l *.rpm
+

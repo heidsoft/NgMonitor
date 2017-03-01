@@ -69,10 +69,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/ngmonitor
-pkgincludedir = $(includedir)/ngmonitor
-pkglibdir = $(libdir)/ngmonitor
-pkglibexecdir = $(libexecdir)/ngmonitor
+pkgdatadir = $(datadir)/NgMonitor
+pkgincludedir = $(includedir)/NgMonitor
+pkglibdir = $(libdir)/NgMonitor
+pkglibexecdir = $(libexecdir)/NgMonitor
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -157,8 +157,8 @@ CTAGS = ctags
 CSCOPE = cscope
 DIST_SUBDIRS = $(SUBDIRS)
 am__DIST_COMMON = $(srcdir)/Makefile.in AUTHORS COPYING ChangeLog \
-	INSTALL NEWS README compile config.guess config.sub install-sh \
-	missing
+	INSTALL NEWS README compile config.guess config.sub depcomp \
+	install-sh missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -213,7 +213,7 @@ CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2
 CPPFLAGS = 
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"NgMonitor\" -DPACKAGE_TARNAME=\"ngmonitor\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"NgMonitor\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"ngmonitor\" -DVERSION=\"1.0\"
+DEFS = -DPACKAGE_NAME=\"NgMonitor\" -DPACKAGE_TARNAME=\"ngmonitor\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"NgMonitor\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"NgMonitor\" -DVERSION=\"1.0\"
 DEPDIR = .deps
 ECHO_C = \c
 ECHO_N = 
@@ -231,7 +231,7 @@ LTLIBOBJS =
 MAKEINFO = ${SHELL} /Users/heidsoft/Documents/workspace/NgMonitor/missing makeinfo
 MKDIR_P = /usr/local/bin/gmkdir -p
 OBJEXT = o
-PACKAGE = ngmonitor
+PACKAGE = NgMonitor
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = NgMonitor
 PACKAGE_STRING = NgMonitor 1.0
