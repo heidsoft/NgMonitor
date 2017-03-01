@@ -1,1 +1,4 @@
 Sample readme file for NgMonitor project.
+
+autoreconf -i
+./configure
