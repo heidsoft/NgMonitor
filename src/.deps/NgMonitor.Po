@@ -36,7 +36,7 @@ NgMonitor.o: NgMonitor.c /usr/include/stdio.h /usr/include/sys/cdefs.h \
   /usr/include/sys/_types/_u_int16_t.h \
   /usr/include/sys/_types/_u_int32_t.h \
   /usr/include/sys/_types/_u_int64_t.h /usr/include/sys/_types/_dev_t.h \
-  /usr/include/sys/_types/_mode_t.h
+  /usr/include/sys/_types/_mode_t.h utils.h
 
 /usr/include/stdio.h:
 
@@ -173,3 +173,5 @@ NgMonitor.o: NgMonitor.c /usr/include/stdio.h /usr/include/sys/cdefs.h \
 /usr/include/sys/_types/_dev_t.h:
 
 /usr/include/sys/_types/_mode_t.h:
+
+utils.h:

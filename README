@@ -1,5 +1,0 @@
-Sample readme file for NgMonitor project.
-
-#拷贝错误文件 -i, --install            copy missing auxiliary files
-autoreconf -i
-./configure
