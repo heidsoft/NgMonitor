@@ -3,3 +3,5 @@
 .cproject
 .project
 .settings
+src/autom4te.cache
+*.o
