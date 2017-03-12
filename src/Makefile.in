@@ -105,6 +105,8 @@ PROGRAMS = $(bin_PROGRAMS)
 am_ngMonitor_OBJECTS = NgMonitor.$(OBJEXT) utils.$(OBJEXT)
 ngMonitor_OBJECTS = $(am_ngMonitor_OBJECTS)
 ngMonitor_LDADD = $(LDADD)
+ngMonitor_LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(ngMonitor_LDFLAGS) \
+	$(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -270,6 +272,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
 ngMonitor_SOURCES = NgMonitor.c utils.c utils.h
+ngMonitor_LDFLAGS = -levent
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -368,7 +371,7 @@ clean-binPROGRAMS:
 
 ngMonitor$(EXEEXT): $(ngMonitor_OBJECTS) $(ngMonitor_DEPENDENCIES) $(EXTRA_ngMonitor_DEPENDENCIES) 
 	@rm -f ngMonitor$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(ngMonitor_OBJECTS) $(ngMonitor_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(ngMonitor_LINK) $(ngMonitor_OBJECTS) $(ngMonitor_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
