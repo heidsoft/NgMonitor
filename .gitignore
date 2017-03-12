@@ -5,3 +5,5 @@
 .settings
 src/autom4te.cache
 *.o
+autom4te.cache
+

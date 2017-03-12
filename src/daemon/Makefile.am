@@ -1,0 +1,3 @@
+AUTOMAKE_OPTIONS=foreign
+bin_PROGRAMS=NgDeamon
+NgDeamon_SOURCES=NgDeamon.c
