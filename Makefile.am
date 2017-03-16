@@ -1,1 +1,1 @@
-SUBDIRS=src/monitor src/daemon
+SUBDIRS=src/monitor src/daemon src/client

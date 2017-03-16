@@ -1,0 +1,13 @@
+autoscan: warning: missing AC_CHECK_FUNCS([bzero]) wanted by: 
+	src/client/client.c:28
+	src/client/client.c:45
+autoscan: warning: missing AC_CHECK_FUNCS([socket]) wanted by: 
+	src/client/client.c:21
+autoscan: warning: missing AC_CHECK_HEADERS([sys/socket.h]) wanted by: 
+	src/client/client.c:8
+autoscan: warning: missing AC_FUNC_FORK wanted by: 
+	src/daemon/NgDeamon.c:9
+autoscan: warning: missing AC_HEADER_RESOLV wanted by: 
+	src/client/client.c:7
+autoscan: warning: missing AC_TYPE_PID_T wanted by: 
+	src/daemon/NgDeamon.c:9

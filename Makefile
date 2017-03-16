@@ -235,15 +235,15 @@ OBJEXT = o
 PACKAGE = ngmonitor
 PACKAGE_BUGREPORT = heidsoft@qq.com
 PACKAGE_NAME = ngmonitor
-PACKAGE_STRING = ngmonitor 0.1.0
+PACKAGE_STRING = ngmonitor 1.0.0
 PACKAGE_TARNAME = ngmonitor
 PACKAGE_URL = 
-PACKAGE_VERSION = 0.1.0
+PACKAGE_VERSION = 1.0.0
 PATH_SEPARATOR = :
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = 
-VERSION = 0.1.0
+VERSION = 1.0.0
 abs_builddir = /Users/heidsoft/Documents/workspace/NgMonitor
 abs_srcdir = /Users/heidsoft/Documents/workspace/NgMonitor
 abs_top_builddir = /Users/heidsoft/Documents/workspace/NgMonitor
@@ -275,7 +275,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /Users/heidsoft/Documents/workspace/NgMonitor/install
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -286,7 +286,7 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-SUBDIRS = src/monitor src/daemon
+SUBDIRS = src/monitor src/daemon src/client
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
