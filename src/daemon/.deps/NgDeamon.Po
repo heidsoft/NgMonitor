@@ -47,8 +47,10 @@ NgDeamon.o: NgDeamon.c /usr/include/stdlib.h /usr/include/Availability.h \
   /usr/include/sys/_types/_uuid_t.h /usr/include/gethostuuid.h \
   /usr/include/stdio.h /usr/include/sys/_types/_va_list.h \
   /usr/include/sys/stdio.h /usr/include/secure/_stdio.h \
-  /usr/include/secure/_common.h /usr/include/errno.h \
-  /usr/include/sys/errno.h /usr/include/sys/_types/_errno_t.h
+  /usr/include/secure/_common.h /usr/include/string.h \
+  /usr/include/sys/_types/_rsize_t.h /usr/include/sys/_types/_errno_t.h \
+  /usr/include/strings.h /usr/include/secure/_string.h \
+  /usr/include/errno.h /usr/include/sys/errno.h
 
 /usr/include/stdlib.h:
 
@@ -226,8 +228,16 @@ NgDeamon.o: NgDeamon.c /usr/include/stdlib.h /usr/include/Availability.h \
 
 /usr/include/secure/_common.h:
 
+/usr/include/string.h:
+
+/usr/include/sys/_types/_rsize_t.h:
+
+/usr/include/sys/_types/_errno_t.h:
+
+/usr/include/strings.h:
+
+/usr/include/secure/_string.h:
+
 /usr/include/errno.h:
 
 /usr/include/sys/errno.h:
-
-/usr/include/sys/_types/_errno_t.h:

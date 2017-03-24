@@ -36,7 +36,8 @@ NgMonitor.o: NgMonitor.c /usr/include/stdio.h /usr/include/sys/cdefs.h \
   /usr/include/sys/_types/_u_int16_t.h \
   /usr/include/sys/_types/_u_int32_t.h \
   /usr/include/sys/_types/_u_int64_t.h /usr/include/sys/_types/_dev_t.h \
-  /usr/include/sys/_types/_mode_t.h /usr/local/include/event.h \
+  /usr/include/sys/_types/_mode_t.h /usr/include/signal.h \
+  /usr/include/sys/_pthread/_pthread_t.h /usr/local/include/event.h \
   /usr/local/include/event2/event-config.h /usr/include/sys/types.h \
   /usr/include/sys/_types/_blkcnt_t.h \
   /usr/include/sys/_types/_blksize_t.h /usr/include/sys/_types/_gid_t.h \
@@ -60,7 +61,6 @@ NgMonitor.o: NgMonitor.c /usr/include/stdio.h /usr/include/sys/cdefs.h \
   /usr/include/sys/_pthread/_pthread_once_t.h \
   /usr/include/sys/_pthread/_pthread_rwlock_t.h \
   /usr/include/sys/_pthread/_pthread_rwlockattr_t.h \
-  /usr/include/sys/_pthread/_pthread_t.h \
   /usr/include/sys/_pthread/_pthread_key_t.h \
   /usr/include/sys/_types/_fsblkcnt_t.h \
   /usr/include/sys/_types/_fsfilcnt_t.h /usr/include/sys/time.h \
@@ -226,6 +226,10 @@ NgMonitor.o: NgMonitor.c /usr/include/stdio.h /usr/include/sys/cdefs.h \
 
 /usr/include/sys/_types/_mode_t.h:
 
+/usr/include/signal.h:
+
+/usr/include/sys/_pthread/_pthread_t.h:
+
 /usr/local/include/event.h:
 
 /usr/local/include/event2/event-config.h:
@@ -289,8 +293,6 @@ NgMonitor.o: NgMonitor.c /usr/include/stdio.h /usr/include/sys/cdefs.h \
 /usr/include/sys/_pthread/_pthread_rwlock_t.h:
 
 /usr/include/sys/_pthread/_pthread_rwlockattr_t.h:
-
-/usr/include/sys/_pthread/_pthread_t.h:
 
 /usr/include/sys/_pthread/_pthread_key_t.h:
 

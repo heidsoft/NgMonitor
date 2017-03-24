@@ -10,21 +10,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 #include <event.h>
 #include "utils.h"
 
 int main(void) {
-	puts("Hello World"); /* prints Hello World */
+	printf("Hello World %d \r\n",SIGINT); /* prints Hello World */
 
 	//创建一个event_base
 	struct event_base *base = event_base_new();
 	if(base != NULL){
-		printf("new event_base\n");
+		printf("new event_base \r\n");
 	}
 
+	signal(SIGINT,test1);
 
+	/*   pause - wait for signal */
+	pause();
 
-	test1();
 	test2();
 	return EXIT_SUCCESS;
 }
